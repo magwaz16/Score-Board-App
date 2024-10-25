@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Varela+Round&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Varela Round", sans-serif;
+}
+
+body{
+    background-image: url(/P5-Scoreboard/pitch.jpg);
+    background-color: blue;
+    background-position: center;
+    background-size: cover;
+ 
+  
+}
+h1{
+    margin: 0.94em auto;
+    text-align: center;
+}
+.container{
+    margin: 6.25em auto;
+    padding: 3.125em 4.68em;
+    border: 5px outset whitesmoke;
+    max-width: 500px;
+    background-color: hsl(240, 78%, 37%);
+    color: whitesmoke;
+    overflow: hidden;
+    
+}
+   
+
+
+.score-ln{
+    margin: 1.875em auto;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+   
+}
+
+.col-H,.col-A{
+    padding: right 1.87em;;
+    text-align: center;
+    margin: 1.25em auto;
+   
+    
+}
+#score-home,#score-away{
+    padding: 1.2em;
+    margin: 1.2em;
+    border: 3px solid whitesmoke;
+    background-color: black;
+    color: red;
+    font-size: 2rem;
+}
+
+.points-btn{
+    border-radius: 50%;
+    padding: 1em;
+    display: inline-block;
+    font-weight: 600;
+    color:hsl(0, 11%, 4%);
+    background-color: whitesmoke;
+    
+}
+
+button:hover{
+    background-color: hsla(0, 14%, 93%, 0.822);
+    cursor: pointer;
+}
+.xtra-btn{
+    padding: 0.94em 1em;
+    border-radius: 10px;
+    margin: 0.5em 0.94em 0.94em;
+}
+
+
+
+

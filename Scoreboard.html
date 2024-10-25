@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project-2 - Scoreboard game</title>
+    <link rel="stylesheet" href="Scoreboard.css">
+</head>
+<body>
+    <div class="container">
+        <h1>GAME</h1>
+            <section class="score-ln">
+                <div class="col-H">
+                    <h2>HOME</h2>
+                        <div id="score-home">0</div>
+                            <button class="points-btn " onclick="add1Home()">+1</button>
+                            <button  class="points-btn "onclick="add2Home()">+2</button>
+                            <button  class="points-btn "onclick="add3Home()">+3</button>
+                            <button class="xtra-btn" id="Foul" onclick="minus1Home()">Foul (-1)</button>
+                </div>
+                <div class="col-A">
+                    <h2>AWAY</h2>
+                        <div id="score-away">0</div>
+                            <button class="points-btn" onclick="add1Away()">+1</button>
+                            <button  class="points-btn "onclick="add2Away()">+2</button>
+                            <button class="points-btn " onclick="add3Away()">+3</button>
+                            <button class="xtra-btn" id="Foul" onclick="minus1Away()">Foul (-1)</button>
+                </div>
+                
+               
+            </section>
+            <div class="xtras">
+
+                
+                <button class="xtra-btn" id="Clear" onclick="clearValues()">Clear Scoreline</button>
+
+                <div>
+                    <button class="xtra-btn" onclick="saveGame()" >Save game</button>
+                    <br/>
+                    <p id="saved-games">Saved Games: </p>
+                </div>
+            </div>
+
+            
+    </div>
+
+<!-- JAVASCRIPT -->
+    <script>
+   /* VARIABLES */
+        let scoreHome = document.getElementById("score-home")
+        let scoreAway = document.getElementById("score-away")
+        const foulbtn = document.getElementById("Foul")
+        const clearbtn = document.getElementById("Clear")
+        let savedGames= document.getElementById("saved-games")
+        console.log(savedGames)
+        let scoreHomeValue = 0
+        let scoreAwyValue = 0
+        let results = ''
+        let savedRounds=[]
+        let roundCount= 1
+      
+
+        /* FUNCTIONS */
+        function updateScore(team, points){
+            if(team ==="home"){
+                scoreHomeValue += points
+                scoreHome.textContent =scoreHomeValue
+            }else if (team=== "away"){
+                scoreAwyValue += points
+                scoreAway.textContent= scoreAwyValue
+
+            }
+        }
+
+        function add1Home(){
+            updateScore("home", 1)
+        }
+        
+        function add2Home(){
+            updateScore("home", 2)
+        }
+        
+        function add3Home(){
+            updateScore("home", 3)
+        }
+        
+        function add1Away(){
+            updateScore("away", 1)
+        }
+        
+        function add2Away(){
+            updateScore("away", 2)
+        }
+        
+        function add3Away(){
+            updateScore("away", 3)
+        }
+        
+/* FOUL BUTTON */
+        
+        function minus1Home(){
+            scoreHomeValue-= 1
+            scoreHome.textContent= scoreHomeValue
+        }
+        function minus1Away(){
+            scoreAwyValue-= 1
+            scoreAway.textContent= scoreAwyValue
+        }
+
+        /* CLEAR BUTTON */
+        function clearValues(){
+            scoreAwyValue = 0
+            scoreHomeValue = 0
+
+            scoreHome.textContent= scoreHomeValue
+            scoreAway.textContent= scoreAwyValue
+        }
+
+        function saveGame(){
+            results = `Round ${roundCount}: ${scoreHomeValue} - ${scoreAwyValue}`
+
+            savedRounds.push(results)
+
+            if(savedRounds.length > 3){
+                savedRounds.shift()
+            }
+
+            savedGames.innerHTML= "Saved Games:<br>" + savedRounds.join("<br>")
+
+            roundCount++
+            clearValues()
+        }
+      
+    </script>
+
+</body>
+</html>
